@@ -14,6 +14,14 @@ export class Tab2Page {
     await this.photoService.loadSaved();
   }
 
+  async deletePhoto(index: number) {
+    await this.photoService.deletePhoto(index);
+  }
+  
+  getPhotoPath(index: number): string {
+    return this.photoService.photos[index].webviewPath!;
+  }
+
   addPhotoToGallery(){
     this.photoService.addNewToGallery();
   }

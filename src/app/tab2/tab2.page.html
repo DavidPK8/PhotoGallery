@@ -8,8 +8,9 @@
 
 <ion-content>
   <ion-row>
-    <ion-grid size="6" *ngFor="let Photo of photoService.photos; index as position">
+    <ion-grid size="6" *ngFor="let Photo of photoService.photos; let i = index">
       <ion-img [src]="Photo.webviewPath"></ion-img>
+      <ion-button (click)="deletePhoto(i)" color="danger">Delete</ion-button>
     </ion-grid>
   </ion-row>
 </ion-content>

@@ -27,7 +27,7 @@ export class PhotoService {
 
     // Save the picture and add it to photo collection
     const savedImagedFile = await this.savePicture(capturedPhoto);
-    this.photos.unshift(savedImagedFile)
+    /*this.photos.unshift(savedImagedFile)*/
 
     this.photos.unshift({
       filepath: 'soon...',
@@ -39,6 +39,25 @@ export class PhotoService {
       value: JSON.stringify(this.photos),
     })
   }
+
+  public async deletePhoto(index: number) {
+    const photoToRemove = this.photos[index];
+  
+    // Remove photo from array
+    this.photos.splice(index, 1);
+  
+    // Remove photo file from filesystem
+    await Filesystem.deleteFile({
+      path: photoToRemove.filepath,
+      directory: Directory.Data,
+    });
+  
+    // Update storage
+    await Preferences.set({
+      key: this.PHOTO_STORAGE,
+      value: JSON.stringify(this.photos),
+    });
+  }  
 
   public async loadSaved(){
     // Retrive cached photo array data
