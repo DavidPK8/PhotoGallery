@@ -1,3 +1,9 @@
+# Integrantes
+
+- Alan Perez
+- Ingrith Revelo
+- David Vallejo
+
 # Capturas
 
 ![image](https://github.com/DavidPK8/PhotoGallery/assets/127541791/1e60a91c-18d2-4dbd-905b-0c0220c197e9)
